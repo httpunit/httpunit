@@ -74,13 +74,13 @@ class Crawler
     // Make options
     $options = $this->makeOptions($request) + $this->options;
 
-    $ch = curl_init();
-    curl_setopt_array($ch, $options);
+    $handler = curl_init();
+    curl_setopt_array($handler, $options);
 
     $this->response = new Response(
-      curl_exec($ch), curl_errno($ch), curl_error($ch), curl_getinfo($ch)
+      curl_exec($handler), curl_errno($handler), curl_error($handler), curl_getinfo($handler)
     );
-    curl_close($ch);
+    curl_close($handler);
 
     // Merge cookie
     $this->cookie->merge($this->response->getCookie());

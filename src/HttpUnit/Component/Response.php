@@ -33,9 +33,9 @@ class Response
 
     if (isset($info['header_size']))
     {
-      $header_size = $info['header_size']; 
-      $this->header = substr($content, 0, $header_size);
-      $this->body = substr($content, $header_size);
+      $headerSize = $info['header_size']; 
+      $this->header = substr($content, 0, $headerSize);
+      $this->body = substr($content, $headerSize);
 
       $this->parseHeaders();
     }

@@ -11,6 +11,11 @@ php:
   - 7.0
   - hhvm
 
+matrix:
+  allow_failures:
+  - 7.0
+  - hhvm
+
 install:
   - composer install
 
