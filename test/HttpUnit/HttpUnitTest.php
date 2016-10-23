@@ -29,4 +29,14 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   {
     $this->unit->assertContentType(1, 2, 3);
   }
+
+  /**
+   * Tests an unit with a preloaded scenario
+   */
+  public function testPreloadingScenario()
+  {
+    $unit = new HttpUnit(['host' => '127.0.0.1'], ['request' => ['path' => '/index.php']]);
+
+    $this->assertEquals(200, $unit->getResponse()->getStatusCode(), 'Should be 200');
+  }
 }
