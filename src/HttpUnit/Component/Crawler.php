@@ -136,14 +136,6 @@ class Crawler
     return $options;
   }
 
-  public function __get($name)
-  {
-    if (property_exists($this, $name))
-    {
-      return $this->$name;
-    }
-  }
-
   /**
    * Gets last response
    * 

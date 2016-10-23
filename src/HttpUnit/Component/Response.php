@@ -57,6 +57,22 @@ class Response
     return 0;
   }
 
+  /**
+   * Get Content Type
+   * 
+   * @return string
+   */
+  public function getContentType()
+  {
+    if (isset($this->info['content_type']))
+    {
+      if (preg_match('/^([^;]*);*/i', $this->info['content_type'], $match))
+      {
+        return $match[1];
+      }
+    }
+  }
+
   public function parseHeaders()
   {
     $headers = explode("\n", $this->header);

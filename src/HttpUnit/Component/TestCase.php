@@ -32,4 +32,16 @@ class TestCase extends AbstractHttpUnit
   {
     return $code === $this->getResponse()->getStatusCode();
   }
+
+  /**
+   * Performs an assert on content type
+   * 
+   * @param string $contentType
+   * 
+   * @return bool
+   */
+  public function assertContentType($contentType = null)
+  {
+    return $contentType === $this->getResponse()->getContentType();
+  }
 }
