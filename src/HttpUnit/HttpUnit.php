@@ -2,6 +2,7 @@
 
 namespace HttpUnit;
 
+use Exception;
 use HttpUnit\Component\Crawler;
 use HttpUnit\Component\Scenario;
 use HttpUnit\Component\TestCase;
@@ -49,6 +50,8 @@ class HttpUnit
    * @param array $arguments Some arguments for the method 
    *
    * @return mixed
+   * 
+   * @throws Exception
    */
   public function __call($name, $arguments)
   {
@@ -65,7 +68,7 @@ class HttpUnit
           , __METHOD__
           , count($arguments)
         );
-        trigger_error($message, E_USER_ERROR);
+        throw new Exception($message);
     }
   }
 }

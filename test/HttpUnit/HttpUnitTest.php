@@ -21,4 +21,12 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
 
     $this->assertEquals(200, $this->unit->getResponse()->getStatusCode(), 'Should be 200');
   }
+
+  /**
+   * @expectedException Exception
+   */
+  public function testCallMethodWithTooManyArguments()
+  {
+    $this->unit->assertContentType(1, 2, 3);
+  }
 }
