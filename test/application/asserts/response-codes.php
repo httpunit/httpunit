@@ -1,8 +1,9 @@
 <?php
 
 /**
- * It's a simple scenario:
- * - Gets and sends expected response code
+ * A simple application
+ * 
+ * Gets and sends expected response code
  */
 session_name ("temp");
 session_start();
