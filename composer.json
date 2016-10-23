@@ -1,0 +1,22 @@
+{
+    "name": "httpunit/httpunit",
+    "type": "library",
+    "version": "1.0.0",
+    "description": "A PHP library for testing with a crawler",
+    "keywords": ["crawl", "test", "QA"],
+    "homepage": "https://github.com/httpunit/httpunit",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0 || ^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "codeclimate/php-test-reporter": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "HttpUnit\\": "src/HttpUnit/",
+            "HttpUnitTest\\": "test/HttpUnit/"
+        }
+    }
+}
