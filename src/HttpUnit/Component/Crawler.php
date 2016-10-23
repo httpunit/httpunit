@@ -85,14 +85,6 @@ class Crawler
     // Merge cookie
     $this->cookie->merge($this->response->getCookie());
 
-    if ($this->verbose)
-    {
-      foreach ($this->response as $attr => $value)
-      {
-        echo PHP_EOL . "$attr:" . print_r($value, true);
-      }
-    }
-
     return $this->response;
   }
 
@@ -126,7 +118,7 @@ class Crawler
     }
 
     // cookie
-    if (count($this->cookie))
+    if ($this->cookie->count())
     {
       $options[CURLOPT_COOKIE] = $this->cookie->getFormatted();
     }
