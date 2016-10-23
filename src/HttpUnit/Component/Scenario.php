@@ -2,8 +2,6 @@
 
 namespace HttpUnit\Component;
 
-use HttpUnit\Component\Crawler;
-
 class Scenario
 {
   /** @var HttpUnit\Component\Crawler $crawler */

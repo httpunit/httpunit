@@ -39,4 +39,21 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
 
     $this->assertEquals(200, $unit->getResponse()->getStatusCode(), 'Should be 200');
   }
+
+  /**
+   * Tests an unit with a preloaded multi-requests scenario
+   */
+  public function testPreloadingMultiRequestScenario()
+  {
+    $scenario = [ 'name' => 'multiRequestScenario', 'requests' => [
+        ['path' => '/index.php'],
+        ['path' => '/index.php'],
+        ['path' => '/index.php']
+      ]
+    ];
+
+    $unit = new HttpUnit(['host' => '127.0.0.1'], $scenario);
+
+    $this->assertEquals(200, $unit->getResponse()->getStatusCode(), 'Should be 200');
+  }
 }

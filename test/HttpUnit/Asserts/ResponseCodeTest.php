@@ -33,7 +33,6 @@ class ResponseCodeTest extends PHPUnit_Framework_TestCase
 
       $this->assertEquals(true, $this->unit->assertResponseCode($test), "Should be $test");
     }
-   // $this->assertEquals('text/html', $this->unit->assertContentType(), 'Should be text/html');
   }
 
   /**
