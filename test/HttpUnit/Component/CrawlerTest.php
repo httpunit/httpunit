@@ -14,7 +14,7 @@ class CrawlerTest extends PHPUnit_Framework_TestCase
   {
     $crawler = new Crawler([
       'verbose' => 'vv',
-      'cookie'=> ['token'=>'value']
+      'cookie'  => ['token' => 'value']
     ]);
 
     $this->assertArrayHasKey('token', $crawler->getCookie()->toArray());
