@@ -148,28 +148,4 @@ class Crawler
   {
     return $this->cookie;
   }
-
-  public function getHeaders()
-  {
-    if (property_exists($this->response, 'headers'))
-    {
-      return $this->response->headers;
-    }
-  }
-
-  public function getContent()
-  {
-    if (property_exists($this->response, 'content'))
-    {
-      return $this->response->content;
-    }
-  }
-
-  public function getInfo()
-  {
-    if (property_exists($this->response, 'info'))
-    {
-      return $this->response->info;
-    }
-  }
 }
