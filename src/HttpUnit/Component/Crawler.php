@@ -83,7 +83,7 @@ class Crawler
     curl_close($handler);
 
     // Merge cookie
-    $this->cookie->merge($this->response->getCookie());
+    $this->getCookie()->merge($this->getResponse()->getCookie());
 
     return $this->response;
   }
@@ -118,11 +118,12 @@ class Crawler
     }
 
     // cookie
-    if ($this->cookie->count())
+    if ($this->getCookie()->count())
     {
-      $options[CURLOPT_COOKIE] = $this->cookie->getFormatted();
+      $options[CURLOPT_COOKIE] = $this->getCookie()->getFormatted();
     }
 
+    // URL
     $options[CURLOPT_URL] = $request->getUrl();
 
     return $options;
@@ -138,12 +139,14 @@ class Crawler
     return $this->response;
   }
 
+  /**
+   * Gets current cookie
+   * 
+   * @return HttpUnit\Component\Cookie
+   */
   public function getCookie()
   {
-    if (property_exists($this, 'cookie'))
-    {
-      return $this->cookie;
-    }
+    return $this->cookie;
   }
 
   public function getHeaders()
