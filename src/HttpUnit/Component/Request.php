@@ -2,6 +2,8 @@
 
 namespace HttpUnit\Component;
 
+use Exception;
+
 class Request
 {
   /** @var string $method */
@@ -72,9 +74,11 @@ class Request
   }
 
   /**
-   * Gets params
+   * Gets property
    * 
-   * @return array
+   * @return mixed
+   * 
+   * @throws \Exception
    */
   public function __get($name)
   {
@@ -82,5 +86,7 @@ class Request
     {
       return $this->$name;
     }
+    
+    throw new Exception('Property is NOT defined');
   }
 }
