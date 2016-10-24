@@ -41,20 +41,17 @@ class Response
     }
   }
 
-  public function getInfo($key = null)
-  {
-    return null !== $key && array_key_exists($key, $this->info)
-      ? $this->info[$key] : $this->info;
-  }
-
+  /**
+   * Gets HTTP status code
+   * 
+   * @return int
+   */
   public function getStatusCode()
   {
     if (isset($this->info['http_code']))
     {
       return (int)$this->info['http_code'];
     }
-
-    return 0;
   }
 
   /**
@@ -64,16 +61,17 @@ class Response
    */
   public function getContentType()
   {
-    if (isset($this->info['content_type']))
-    {
-      if (preg_match('/^([^;]*);*/i', $this->info['content_type'], $match))
-      {
+    if ( isset($this->info['content_type'])
+      && preg_match('/^([^;]*);*/i', $this->info['content_type'], $match)
+    ) {
         return $match[1];
-      }
     }
   }
 
-  public function parseHeaders()
+  /**
+   * Populate headers
+   */
+  private function parseHeaders()
   {
     $headers = explode("\n", $this->header);
 
