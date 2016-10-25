@@ -31,6 +31,16 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @expectedException Exception
+   */
+  public function testAssertBeforeScenario()
+  {
+    $unit = new HttpUnit();
+
+    $this->unit->assertContentType('text/html');
+  }
+
+  /**
    * Tests an unit with a preloaded scenario
    */
   public function testPreloadingScenario()

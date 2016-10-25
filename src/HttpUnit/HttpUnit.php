@@ -15,6 +15,9 @@ class HttpUnit
   /** @var HttpUnit\Component\Scenario $scenario */
   protected $scenario;
 
+  /** @var HttpUnit\Component\TestCase $tester */
+  protected $tester;
+
   /**
    * @param array $options Default options for the crawler
    * 
@@ -55,20 +58,24 @@ class HttpUnit
    */
   public function __call($name, $arguments)
   {
-    switch(count($arguments))
+    if (!($this->tester instanceof TestCase))
+    {
+      throw new Exception('A scenario must be played before assertions');
+    }
+
+    switch (count($arguments))
     {
       case 0:
         return $this->tester->$name();
-        break;
       case 1:
         return $this->tester->$name($arguments[0]);
-        break;
       default:
         $message = sprintf('%s method does not support %d arguments'
           , __METHOD__
           , count($arguments)
         );
         throw new Exception($message);
+        break;
     }
   }
 }
