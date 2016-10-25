@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo $(phpenv version-name)
+
 sudo apt-get update
 sudo apt-get install apache2 libapache2-mod-fastcgi
 
@@ -13,4 +15,3 @@ sudo cp -f build/php5/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
 cat /etc/apache2/sites-available/default
 sudo service apache2 restart
-
