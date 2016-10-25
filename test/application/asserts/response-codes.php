@@ -21,3 +21,5 @@ if (isset($_GET['code']))
     header("HTTP/1.1 {$_GET['code']} PHP");
   }
 }
+
+exit;

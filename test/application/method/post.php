@@ -12,14 +12,12 @@ if (!isset($_POST['user']))
 
   if (substr($sapi_type, 0, 3) == 'cgi')
   {
-    header("Status: 200 PHP-CGI");
+    header("Status: 301 PHP-CGI");
   }
   else
   {
-    header("HTTP/1.1 200 OK");
+    header("HTTP/1.1 301 OK");
   }
 
-  exit(0);
+  exit;
 }
-
-http_response_code(200);
