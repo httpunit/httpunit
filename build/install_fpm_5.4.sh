@@ -13,4 +13,4 @@ sudo cp -f build/php5/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
 
 sudo service apache2 restart
-service php5-fpm restart
+sudo service php5-fpm restart

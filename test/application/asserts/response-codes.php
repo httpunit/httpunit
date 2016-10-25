@@ -12,3 +12,5 @@ if (isset($_GET['code']))
 {
   http_response_code($_GET['code']);
 }
+
+exit();
