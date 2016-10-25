@@ -23,6 +23,21 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * Tests preloading POST scenario
+   */
+  public function testPostScenario()
+  {
+    $this->unit->addScenario(['request' => [
+        'path' => '/method/post.php'
+        , 'method' => 'POST'
+        , 'params' => ['user' => 'bob']
+      ]
+    ]);
+
+    $this->assertEquals(200, $this->unit->getResponse()->getStatusCode(), 'Should be 200');
+  }
+
+  /**
    * @expectedException Exception
    */
   public function testCallMethodWithTooManyArguments()

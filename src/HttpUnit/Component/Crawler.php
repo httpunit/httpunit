@@ -97,6 +97,8 @@ class Crawler
    */
   private function makeOptions(Request $request)
   {
+    $options = [];
+
     // method
     if ($request->method == 'POST')
     {
