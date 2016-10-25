@@ -2,19 +2,17 @@
 
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php -y
-sudo apt-get purge php5-fpm
-sudo apt-get --purge autoremove
 
 sudo apt-get update
-sudo apt-get install apache2 libapache2-mod-fastcgi php7.0-fpm
+sudo apt-get install apache2 libapache2-mod-fastcgi apache2-mpm-worker php7.0-fpm php7.0-curl
 
 # enable php-fpm
 sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-sudo a2enmod rewrite actions fastcgi alias
+sudo a2enmod rewrite actions fastcgi alias proxy_fcgi
 echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 # configure apache virtual hosts
-sudo cp -f build/php5/travis-ci-apache /etc/apache2/sites-available/default
+sudo cp -f build/php7/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
 
 sudo service apache2 restart
