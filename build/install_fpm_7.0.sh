@@ -1,5 +1,10 @@
 #!/bin/bash
 
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get purge php5-fpm
+sudo apt-get --purge autoremove
+
 sudo apt-get update
 sudo apt-get install apache2 libapache2-mod-fastcgi php7.0-fpm
 
