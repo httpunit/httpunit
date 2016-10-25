@@ -10,7 +10,14 @@ session_start();
 
 if (isset($_GET['code']))
 {
-  http_response_code($_GET['code']);
-}
+  $sapi_type = php_sapi_name();
 
-exit();
+  if (substr($sapi_type, 0, 3) == 'cgi')
+  {
+    header("Status: {$_GET['code']} PHP-CGI");
+  }
+  else
+  {
+    header("HTTP/1.1 {$_GET['code']} PHP");
+  }
+}
