@@ -1,7 +1,6 @@
 <VirtualHost *:80>
 
-	ServerName test.httpunit.local
-	ServerAdmin webmaster@test.httpunit.local
+	ServerName 127.0.0.1
 	DocumentRoot %TRAVIS_BUILD_DIR%/test/application
 
 <Directory %TRAVIS_BUILD_DIR%/test/application>
