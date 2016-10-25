@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get purge php5-fpm
 sudo apt-get --purge autoremove
 
