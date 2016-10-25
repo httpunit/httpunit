@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Tests POST simple scenario
+ * A POST simple scenario
  */
 session_name ("temp");
 session_start();
