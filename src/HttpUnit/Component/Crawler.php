@@ -102,10 +102,10 @@ class Crawler
     // method
     if ($request->method == 'POST')
     {
-      $options = array_merge($options, [
+      $options = [
         CURLOPT_POST        => 1,
         CURLOPT_POSTFIELDS  => $request->params
-      ]);
+      ] + $options;
     }
     // Sets params for other methods
     elseif (count($request->params))

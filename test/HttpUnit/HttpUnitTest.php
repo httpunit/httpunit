@@ -23,7 +23,7 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * Tests preloading POST scenario
+   * Tests a POST scenario
    */
   public function testPostScenario()
   {
