@@ -52,7 +52,7 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   {
     $unit = new HttpUnit();
 
-    $this->unit->assertContentType('text/html');
+    $unit->assertContentType('text/html');
   }
 
   /**
