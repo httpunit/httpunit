@@ -14,7 +14,7 @@
   AddType application/x-httpd-fastphp .php
   Action application/x-httpd-fastphp /php-fcgi
   Alias /php-fcgi /usr/lib/cgi-bin/php
-  FastCgiExternalServer /usr/lib/cgi-bin/php -appConnTimeout 10 -idle-timeout 250 -host 127.0.0.1:9000 -pass-header Authorization
+  FastCgiExternalServer /usr/lib/cgi-bin/php -host 127.0.0.1:9000 -pass-header Authorization
 </IfModule>
 
 </VirtualHost>
