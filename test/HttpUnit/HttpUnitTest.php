@@ -42,6 +42,8 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
    */
   public function testCallMethodWithTooManyArguments()
   {
+    $this->unit->addScenario(['request' => ['path' => '/index.php']]);
+
     $this->unit->assertContentType(1, 2, 3);
   }
 
