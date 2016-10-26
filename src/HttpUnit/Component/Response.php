@@ -98,4 +98,14 @@ class Response
   {
     return $this->cookie;
   }
+
+  /**
+   * Gets body part of the response
+   * 
+   * @return string
+   */
+  public function getBody()
+  {
+    return $this->body;
+  }
 }

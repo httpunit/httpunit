@@ -3,6 +3,7 @@
 namespace HttpUnitTest\Component;
 
 use PHPUnit_Framework_TestCase;
+use HttpUnit\HttpUnit;
 use HttpUnit\Component\Response;
 
 class ResponseTest extends PHPUnit_Framework_TestCase
@@ -16,5 +17,19 @@ class ResponseTest extends PHPUnit_Framework_TestCase
 
     $this->assertEquals(false, $response->getStatusCode(), 'Should be false');
     $this->assertEquals(false, $response->getContentType(), 'Should be false');
+  }
+
+  /**
+   * Control that expected body has been received
+   */
+  public function testGetBody()
+  {
+    $unit = new HttpUnit(['host' => '127.0.0.1']);
+    
+    $html = $unit->addScenario(['request' => ['path' => '/content/helloworld.php']])
+      ->getResponse()
+      ->getBody();
+
+    $this->assertEquals('Hello world!', $html, 'Should be "Hello world!"');
   }
 }
