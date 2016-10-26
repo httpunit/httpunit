@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo apt-get update
 sudo apt-get install apache2 libapache2-mod-fastcgi
 
 # enable php-fpm
@@ -18,6 +17,7 @@ echo "always_populate_raw_post_data = -1" >> ~/.phpenv/versions/$(phpenv version
 # configure apache virtual hosts
 sudo cp -f build/php7/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
-sudo service apache2 restart
 
+# services
+sudo service apache2 restart
 ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
