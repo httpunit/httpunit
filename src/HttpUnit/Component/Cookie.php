@@ -9,14 +9,14 @@ class Cookie
 
   /** @var float $starttime */
   protected $starttime;
-  
+
   /**
    * @param array $options
    */
   public function __construct(array $options = [])
   {
     $this->starttime = microtime(true);
-    
+
     foreach ($options as $key => $value)
     {
       $this->set($key, $value);
