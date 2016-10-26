@@ -20,6 +20,10 @@ before_script:
 
 script: phpunit -c phpunit.xml.dist
 
+after_failure:
+  - cat apache_error.log
+  - cat apache_access.log
+
 after_script:
   ## Code climate
   - ./vendor/bin/test-reporter

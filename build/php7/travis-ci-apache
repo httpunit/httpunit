@@ -1,7 +1,9 @@
 <VirtualHost *:80>
 
-	ServerName 127.0.0.1
 	DocumentRoot %TRAVIS_BUILD_DIR%/test/application
+
+  ErrorLog "%TRAVIS_BUILD_DIR%/apache_error.log"
+  CustomLog "%TRAVIS_BUILD_DIR%/apache_access.log" combined
 
 <Directory %TRAVIS_BUILD_DIR%/test/application>
 	Options FollowSymLinks MultiViews ExecCGI
@@ -11,10 +13,10 @@
 </Directory>
 
 <IfModule mod_fastcgi.c>
-  AddType application/x-httpd-fastphp .php
-  Action application/x-httpd-fastphp /php-fcgi
-  Alias /php-fcgi /usr/lib/cgi-bin/php
-  FastCgiExternalServer /usr/lib/cgi-bin/php -appConnTimeout 10 -idle-timeout 250 -host 127.0.0.1:9000 -pass-header Authorization
+  AddHandler php5-fcgi .php
+  Action php5-fcgi /php5-fcgi
+  Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+  FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
 </IfModule>
 
 </VirtualHost>
