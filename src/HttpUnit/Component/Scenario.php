@@ -4,13 +4,20 @@ namespace HttpUnit\Component;
 
 class Scenario
 {
-  /** @var HttpUnit\Component\Crawler $crawler */
+  /** @var HttpUnit\Component\Crawler */
   protected $crawler;
 
+  /** @var string */
   protected $name;
-  protected $requests;
-  protected $request;
-  protected $responses;
+
+  /** @var array */
+  protected $request = [];
+
+  /** @var array */
+  protected $requests = [];
+
+  /** @var array */
+  protected $responses = [];
 
   /**
    * @param Crawler $crawler
@@ -41,7 +48,7 @@ class Scenario
       }
     }
     # Single request scenario
-    elseif (isset($this->request))
+    elseif (count($this->request))
     {
       $this->responses[] = $this->crawler->run( new Request($this->request) );
     }
