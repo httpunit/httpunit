@@ -1,17 +1,15 @@
 #!/bin/bash
 
-cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default
-
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php -y
 
 sudo apt-get update
-sudo apt-get install apache2 libapache2-mod-fastcgi apache2-mpm-worker php7.0-fpm php7.0-curl
+sudo apt-get install apache2 libapache2-mod-fastcgi php7.0-fpm php7.0-curl
 
 # enable php-fpm
 sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
 sudo a2dismod mpm_prefork
-sudo a2enmod rewrite actions fastcgi alias mpm_worker
+sudo a2enmod rewrite actions fastcgi alias
 echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 # configure apache virtual hosts
@@ -20,3 +18,5 @@ sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-availa
 
 sudo service php7.0-fpm restart
 sudo service apache2 restart
+
+cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default
