@@ -22,7 +22,7 @@ sudo service apache2 restart
 
 # debug fpm conf
 echo FPM conf
-cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf | grep listen
+sudo cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf | grep listen
 # debug apache conf
 echo Apache conf
-apache2ctl -V
+sudo apache2ctl -V
