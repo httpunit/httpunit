@@ -17,6 +17,7 @@ install:
 
 before_script:
   - sudo apt-get update
+  - sudo apt-get install apache2 libapache2-mod-fastcgi
   - ./build/install_fpm_$(phpenv version-name).sh
 
 script: phpunit -c phpunit.xml.dist
