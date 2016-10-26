@@ -17,7 +17,12 @@ echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php
 sudo cp -f build/php7/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
 
-sudo service apache2 restart
 sudo service php7.0-fpm restart
+sudo service apache2 restart
 
-cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default
+# debug fpm conf
+echo FPM conf
+cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf | grep listen
+# debug apache conf
+echo Apache conf
+apache2ctl -V
