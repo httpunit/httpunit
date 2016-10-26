@@ -35,6 +35,8 @@ class HttpUnit
 
   /**
    * @param array $options Parameters
+   * 
+   * @return HttpUnit\HttpUnit
    */
   public function addScenario(array $options = [])
   {
@@ -43,6 +45,8 @@ class HttpUnit
     $this->scenario->run();
 
     $this->tester = new TestCase($this->crawler, $this->scenario);
+
+    return $this;
   }
 
   /**
@@ -70,11 +74,12 @@ class HttpUnit
       case 1:
         return $this->tester->$name($arguments[0]);
       default:
-        $message = sprintf('%s method does not support %d arguments'
-          , __METHOD__
-          , count($arguments)
+        throw new Exception(
+          sprintf('%s method does not support %d arguments'
+            , __METHOD__
+            , count($arguments)
+          )        
         );
-        throw new Exception($message);
         break;
     }
   }
