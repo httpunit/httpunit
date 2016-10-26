@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default
+
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php -y
 
