@@ -38,6 +38,22 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * Tests addRequest shortcut
+   */
+  public function testAddRequestShortcut()
+  {
+    $unit = new HttpUnit(['host' => '127.0.0.1']);
+
+    $unit->addRequest(['path' => '/index.php']);
+
+    $this->assertEquals(
+      200, 
+      $unit->getResponse()->getStatusCode(),
+      'Should be 200'
+    );
+  }
+
+  /**
    * @expectedException Exception
    */
   public function testCallMethodWithTooManyArguments()

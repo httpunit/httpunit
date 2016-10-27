@@ -34,7 +34,7 @@ class HttpUnit
   }
 
   /**
-   * @param array $options Parameters
+   * @param array $options Scenario parameters
    * 
    * @return HttpUnit\HttpUnit
    */
@@ -47,6 +47,16 @@ class HttpUnit
     $this->tester = new TestCase($this->crawler, $this->scenario);
 
     return $this;
+  }
+
+  /**
+   * @param array $options Request parameters
+   * 
+   * @return HttpUnit\HttpUnit
+   */
+  public function addRequest(array $options = [])
+  {
+    return $this->addScenario(['request' => $options]);
   }
 
   /**
