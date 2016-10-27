@@ -54,6 +54,25 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * Tests user-agent customization
+   */
+  public function testUACustomization()
+  {
+    $unit = new HttpUnit([
+      CURLOPT_USERAGENT => 'Custom User Agent',
+      'host' => '127.0.0.1'
+    ]);
+
+    $unit->addRequest(['path' => '/content/useragent.php']);
+
+    $this->assertEquals(
+      'Custom User Agent',
+      $unit->getResponse()->getBody(),
+      'Should be "Custom User Agent"'
+    );
+  }
+
+  /**
    * @expectedException Exception
    */
   public function testCallMethodWithTooManyArguments()
