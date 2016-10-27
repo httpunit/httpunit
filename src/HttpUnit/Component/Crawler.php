@@ -33,6 +33,14 @@ class Crawler
   protected $verbose;
 
   /**
+   * @var string
+   * 
+   * Capture all informations about transaction
+   * when verbose is set.
+   */
+  protected $transaction;
+
+  /**
    * @param array $options Defaults for the crawler
    */
   public function __construct($options = [])
@@ -116,7 +124,9 @@ class Crawler
     // -vv
     if ($this->verbose == 'vv')
     {
+      $this->transaction = fopen('php://temp', 'w');
       $options[CURLOPT_VERBOSE] = 1;
+      $options[CURLOPT_STDERR] = $this->transaction;
     }
 
     // cookie
@@ -149,5 +159,24 @@ class Crawler
   public function getCookie()
   {
     return $this->cookie;
+  }
+
+  /**
+   * Gets informations about HTTP transaction
+   * 
+   * @return string
+   */
+  public function getTransaction()
+  {
+    rewind($this->transaction);
+
+    $contents = '';
+
+    while (!feof($this->transaction))
+    {
+      $contents .= fread($this->transaction, 8192);
+    }
+
+    return $contents;
   }
 }

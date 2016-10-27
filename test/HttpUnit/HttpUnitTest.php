@@ -73,6 +73,19 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * Tests verbose mode
+   */
+  public function testVerboseMode()
+  {   
+    $unit = new HttpUnit(['verbose' => 'vv', 'host' => '127.0.0.1']);
+
+    $unit->addRequest(['path' => '/index.php']);
+
+    $this->assertRegExp('#> GET /index.php HTTP/1.1#', $unit->getTransaction(), 'Should contain "GET /index.php HTTP/1.1"');
+    $this->assertRegExp('#\* Closing connection \#0#', $unit->getTransaction(), 'Should contain "* Closing connection #0"');
+  }
+
+  /**
    * @expectedException Exception
    */
   public function testCallMethodWithTooManyArguments()

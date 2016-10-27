@@ -23,4 +23,14 @@ abstract class AbstractHttpUnit
   {
     return $this->getCrawler()->getResponse();
   }
+
+  /**
+   * Gets informations about HTTP transaction
+   * 
+   * @return string
+   */
+  public function getTransaction()
+  {
+    return $this->getCrawler()->getTransaction();
+  }
 }
