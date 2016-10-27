@@ -6,8 +6,8 @@ class Crawler
 {
   /** @var array $options */
   protected $options = [
-      CURLOPT_RETURNTRANSFER => true,         // return web page
-      CURLOPT_HEADER         => true,         // return headers
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_HEADER         => true,
       CURLOPT_FOLLOWLOCATION => true,         // follow redirects
       CURLOPT_ENCODING       => "",           // handle all encodings
       CURLOPT_USERAGENT      => "HttpUnit Test Spider",
@@ -16,7 +16,7 @@ class Crawler
       CURLOPT_TIMEOUT        => 120,          // timeout on response
       CURLOPT_MAXREDIRS      => 10,           // stop after 10 redirects
       CURLOPT_SSL_VERIFYHOST => 0,            // don't verify ssl
-      CURLOPT_SSL_VERIFYPEER => false,        //
+      CURLOPT_SSL_VERIFYPEER => false,
       CURLOPT_VERBOSE        => 0
   ];
 
@@ -32,12 +32,7 @@ class Crawler
   /** @var string $verbose v for verbosity, vv for more verbosity */
   protected $verbose;
 
-  /**
-   * @var string
-   * 
-   * Capture all informations about transaction
-   * when verbose is set.
-   */
+  /** @var string */
   protected $transaction;
 
   /**
@@ -107,7 +102,7 @@ class Crawler
   {
     $options = [];
 
-    // method
+    // POST method
     if ($request->method == 'POST')
     {
       $options = [
@@ -115,7 +110,7 @@ class Crawler
         CURLOPT_POSTFIELDS  => $request->params
       ] + $options;
     }
-    // Sets params for other methods
+    // Other methods
     elseif (count($request->params))
     {
       $request->setQuery(http_build_query($request->params));
