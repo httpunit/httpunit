@@ -1,6 +1,6 @@
 <?php
 
-namespace HttpUnit\Component;
+namespace HttpUnit\Http;
 
 use Exception;
 

@@ -4,7 +4,7 @@ namespace HttpUnitTest\Component;
 
 use PHPUnit_Framework_TestCase;
 use HttpUnit\HttpUnit;
-use HttpUnit\Component\Response;
+use HttpUnit\Http\Response;
 
 class ResponseTest extends PHPUnit_Framework_TestCase
 {

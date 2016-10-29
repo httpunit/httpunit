@@ -1,6 +1,6 @@
 <?php
 
-namespace HttpUnit\Component;
+namespace HttpUnit\Http;
 
 class Cookie
 {
@@ -75,7 +75,9 @@ class Cookie
   /**
    * Merge with another cookie
    * 
-   * @return HttpUnit\Component\Cookie
+   * @param HttpUnit\Http\Cookie $cookie
+   * 
+   * @return HttpUnit\Http\Cookie
    */
   public function merge(Cookie $cookie)
   {

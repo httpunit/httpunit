@@ -1,6 +1,6 @@
 <?php
 
-namespace HttpUnit\Component;
+namespace HttpUnit\Http;
 
 class Response
 {
@@ -92,7 +92,7 @@ class Response
   /**
    * Gets cookie values from HTTP Headers
    * 
-   * @return HttpUnit\Component\Cookie
+   * @return HttpUnit\Http\Cookie
    */
   public function getCookie()
   {

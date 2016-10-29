@@ -3,7 +3,7 @@
 namespace HttpUnitTest\Component;
 
 use PHPUnit_Framework_TestCase;
-use HttpUnit\Component\Cookie;
+use HttpUnit\Http\Cookie;
 
 class CookieTest extends PHPUnit_Framework_TestCase
 {

@@ -2,6 +2,10 @@
 
 namespace HttpUnit\Component;
 
+use HttpUnit\Http\Cookie;
+use HttpUnit\Http\Request;
+use HttpUnit\Http\Response;
+
 class Crawler
 {
   /** @var array $options */
@@ -20,13 +24,13 @@ class Crawler
       CURLOPT_VERBOSE        => 0
   ];
 
-  /** @var HttpUnit\Component\Cookie $cookie */
+  /** @var HttpUnit\Http\Cookie $cookie */
   protected $cookie; 
 
   /** @var string $host */
   protected $host;
 
-  /** @var HttpUnit\Component\Response $response */
+  /** @var HttpUnit\Http\Response $response */
   protected $response;
 
   /** @var string $verbose v for verbosity, vv for more verbosity */
@@ -62,9 +66,9 @@ class Crawler
   }
 
   /**
-   * @param HttpUnit\Component\Request $request
+   * @param HttpUnit\Http\Request $request
    * 
-   * @return HttpUnit\Component\Response $this->response
+   * @return HttpUnit\Http\Response $this->response
    */
   public function run(Request $request)
   {
@@ -94,7 +98,7 @@ class Crawler
   /**
    * Makes local options
    * 
-   * @param HttpUnit\Component\Request $request
+   * @param HttpUnit\Http\Request $request
    * 
    * @return array
    */
@@ -139,7 +143,7 @@ class Crawler
   /**
    * Gets last response
    * 
-   * @return HttpUnit\Component\Response
+   * @return HttpUnit\Http\Response
    */
   public function getResponse()
   {
@@ -149,7 +153,7 @@ class Crawler
   /**
    * Gets current cookie
    * 
-   * @return HttpUnit\Component\Cookie
+   * @return HttpUnit\Http\Cookie
    */
   public function getCookie()
   {

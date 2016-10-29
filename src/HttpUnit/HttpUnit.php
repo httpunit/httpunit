@@ -68,7 +68,7 @@ class HttpUnit
    *
    * @return mixed
    * 
-   * @throws Exception
+   * @throws \Exception
    */
   public function __call($name, $arguments)
   {
