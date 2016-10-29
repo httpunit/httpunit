@@ -4,14 +4,28 @@ namespace HttpUnit\Http;
 
 class Response
 {
+  /** @var tring */
   protected $content;
-  protected $errno;
-  protected $errmsg;
-  protected $info;
 
-  protected $headers = array();
+  /** @var int */
+  protected $errno;
+
+  /** @var string */
+  protected $errmsg;
+
+  /** @var array */
+  protected $info = [];
+
+  /** @var array */
+  protected $headers = [];
+
+  /** @var string */
   protected $header = '';
+
+  /** @var string */
   protected $body = '';
+
+  /** @var HttpUnit\Http\Cookie */
   protected $cookie;
   
   /**
@@ -61,8 +75,8 @@ class Response
    */
   public function getContentType()
   {
-    if ( isset($this->info['content_type'])
-      && preg_match('/^([^;]*);*/i', $this->info['content_type'], $match)
+    if (isset($this->info['content_type'])
+     && preg_match('/^([^;]*);*/i', $this->info['content_type'], $match)
     ) {
         return $match[1];
     }
@@ -80,7 +94,7 @@ class Response
       // cookie
       if (preg_match('/^set-cookie:\s*(?<key>[^=]*)=(?<value>[^;]*)/mi', $header, $match))
       {
-        $this->cookie->set($match['key'], $match['value']);
+        $this->getCookie()->set($match['key'], $match['value']);
       }
       elseif (preg_match('/^(?<key>[^:]*):\s*(?<value>[^;]*)/mi', $header, $match))
       {

@@ -4,10 +4,10 @@ namespace HttpUnit\Http;
 
 class Cookie
 {
-  /** @var array $array An array of key=>value pairs */
+  /** @var array An array of key=>value pairs */
   protected $array = [];
 
-  /** @var float $starttime */
+  /** @var float */
   protected $starttime;
 
   /**

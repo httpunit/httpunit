@@ -6,22 +6,22 @@ use Exception;
 
 class Request
 {
-  /** @var string $method */
+  /** @var string */
   protected $method = 'GET';
 
-  /** @var string $scheme */
+  /** @var string */
   protected $scheme = 'http';
 
-  /** @var string $host */
+  /** @var string */
   protected $host = 'localhost';
 
-  /** @var string $path */
+  /** @var string */
   protected $path = '/';
 
-  /** @var array $params */
+  /** @var array */
   protected $params = [];
 
-  /** @var string $query */
+  /** @var string */
   protected $query;
 
   /**

@@ -8,7 +8,7 @@ use HttpUnit\Http\Response;
 
 class Crawler
 {
-  /** @var array $options */
+  /** @var array */
   protected $options = [
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_HEADER         => true,
@@ -24,16 +24,16 @@ class Crawler
       CURLOPT_VERBOSE        => 0
   ];
 
-  /** @var HttpUnit\Http\Cookie $cookie */
+  /** @var HttpUnit\Http\Cookie */
   protected $cookie; 
 
-  /** @var string $host */
+  /** @var string */
   protected $host;
 
-  /** @var HttpUnit\Http\Response $response */
+  /** @var HttpUnit\Http\Response */
   protected $response;
 
-  /** @var string $verbose v for verbosity, vv for more verbosity */
+  /** @var string v for verbosity, vv for more verbosity */
   protected $verbose;
 
   /** @var string */

@@ -4,10 +4,10 @@ namespace HttpUnit\Component;
 
 class TestCase extends AbstractHttpUnit
 {
-  /** @var HttpUnit\Component\Crawler $crawler */
+  /** @var HttpUnit\Component\Crawler */
   protected $crawler;
 
-  /** @var HttpUnit\Component\Scenario $scenario */
+  /** @var HttpUnit\Component\Scenario */
   protected $scenario;
   
   /**

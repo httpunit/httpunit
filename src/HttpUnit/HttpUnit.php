@@ -9,13 +9,13 @@ use HttpUnit\Component\TestCase;
 
 class HttpUnit
 {
-  /** @var HttpUnit\Component\Crawler $crawler */
+  /** @var HttpUnit\Component\Crawler */
   protected $crawler;
 
-  /** @var HttpUnit\Component\Scenario $scenario */
+  /** @var HttpUnit\Component\Scenario */
   protected $scenario;
 
-  /** @var HttpUnit\Component\TestCase $tester */
+  /** @var HttpUnit\Component\TestCase */
   protected $tester;
 
   /**
