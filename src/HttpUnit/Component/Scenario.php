@@ -6,7 +6,7 @@ use HttpUnit\Http\Request;
 
 class Scenario
 {
-  /** @var HttpUnit\Component\Crawler */
+  /** @var \HttpUnit\Component\Crawler */
   protected $crawler;
 
   /** @var string */
@@ -22,7 +22,7 @@ class Scenario
   protected $responses = [];
 
   /**
-   * @param Crawler $crawler
+   * @param \HttpUnit\Component\Crawler $crawler
    * 
    * @param array $options Default options for the scenario
    */

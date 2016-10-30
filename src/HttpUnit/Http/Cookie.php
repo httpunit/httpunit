@@ -75,9 +75,9 @@ class Cookie
   /**
    * Merge with another cookie
    * 
-   * @param HttpUnit\Http\Cookie $cookie
+   * @param \HttpUnit\Http\Cookie $cookie
    * 
-   * @return HttpUnit\Http\Cookie
+   * @return \HttpUnit\Http\Cookie
    */
   public function merge(Cookie $cookie)
   {

@@ -4,16 +4,16 @@ namespace HttpUnit\Component;
 
 class TestCase extends AbstractHttpUnit
 {
-  /** @var HttpUnit\Component\Crawler */
+  /** @var \HttpUnit\Component\Crawler */
   protected $crawler;
 
-  /** @var HttpUnit\Component\Scenario */
+  /** @var \HttpUnit\Component\Scenario */
   protected $scenario;
   
   /**
-   * @param HttpUnit\Component\Crawler $crawler
+   * @param \HttpUnit\Component\Crawler $crawler
    * 
-   * @param HttpUnit\Component\Scenario $scenario
+   * @param \HttpUnit\Component\Scenario $scenario
    */
   public function __construct(Crawler $crawler, Scenario $scenario)
   {

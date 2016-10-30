@@ -107,7 +107,7 @@ class Response
   /**
    * Gets cookie values from HTTP Headers
    * 
-   * @return HttpUnit\Http\Cookie
+   * @return \HttpUnit\Http\Cookie
    */
   public function getCookie()
   {

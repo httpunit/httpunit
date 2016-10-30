@@ -7,7 +7,7 @@ abstract class AbstractHttpUnit
   /**
    * Gets crawler instance
    * 
-   * @return HttpUnit\Http\Crawler
+   * @return \HttpUnit\Http\Crawler
    */
   public function getCrawler()
   {
@@ -17,7 +17,7 @@ abstract class AbstractHttpUnit
   /**
    * Gets last response instance
    * 
-   * @return HttpUnit\Http\Response
+   * @return \HttpUnit\Http\Response
    */
   public function getResponse()
   {
