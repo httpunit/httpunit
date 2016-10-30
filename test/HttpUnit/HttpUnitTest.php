@@ -73,6 +73,25 @@ class HttpUnitTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * Tests header customization
+   */
+  public function testHeaderCustomization()
+  {
+    $unit = new HttpUnit(['host' => '127.0.0.1']);
+
+    $unit->addRequest([
+      'path' => '/content/customheaders.php',
+      'headers' => ['X-Requested-With' => 'XMLHttpRequest']
+    ]);
+
+    $this->assertEquals(
+      'XMLHttpRequest',
+      $unit->getResponse()->getBody(),
+      'Should be "XMLHttpRequest"'
+    );
+  }
+
+  /**
    * Tests verbose mode
    */
   public function testVerboseMode()

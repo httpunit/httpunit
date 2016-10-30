@@ -109,15 +109,23 @@ class Crawler
     // POST method
     if ($request->method == 'POST')
     {
-      $options = [
-        CURLOPT_POST        => 1,
-        CURLOPT_POSTFIELDS  => $request->params
-      ] + $options;
+      $options[CURLOPT_POST] = 1;
+
+      if (count($request->params))
+      {
+        $options[CURLOPT_POSTFIELDS] = $request->params;
+      }
     }
     // Other methods
     elseif (count($request->params))
     {
       $request->setQuery(http_build_query($request->params));
+    }
+
+    // headers
+    if ($request->headers->count())
+    {
+      $options[CURLOPT_HTTPHEADER] = $request->headers->toArray();
     }
 
     // -vv

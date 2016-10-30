@@ -24,14 +24,23 @@ class Request
   /** @var string */
   protected $query;
 
+  /** @var \HttpUnit\Http\Headers */
+  protected $headers;
+
   /**
    * @param array $options Default options for request
    */
   public function __construct($options = [])
   {
+    $this->headers = new Headers;
+
     foreach ($options as $attr => $value)
     {
-      if (property_exists($this, $attr))
+      if ($attr == 'headers')
+      {
+        $this->headers->fromArray($value);
+      }
+      elseif (property_exists($this, $attr))
       {
         $this->$attr = $value;
       }

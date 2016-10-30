@@ -16,8 +16,8 @@ class Response
   /** @var array */
   protected $info = [];
 
-  /** @var array */
-  protected $headers = [];
+  /** @var \HttpUnit\Http\Headers */
+  protected $headers;
 
   /** @var string */
   protected $header = '';
@@ -25,7 +25,7 @@ class Response
   /** @var string */
   protected $body = '';
 
-  /** @var HttpUnit\Http\Cookie */
+  /** @var \HttpUnit\Http\Cookie */
   protected $cookie;
   
   /**
@@ -44,6 +44,7 @@ class Response
     $this->errmsg = $errmsg;
     $this->info = $info;
     $this->cookie = new Cookie;
+    $this->headers = new Headers;
 
     if (isset($info['header_size']))
     {
@@ -92,13 +93,13 @@ class Response
     foreach ($headers as $header)
     {
       // cookie
-      if (preg_match('/^set-cookie:\s*(?<key>[^=]*)=(?<value>[^;]*)/mi', $header, $match))
+      if (preg_match('/^set-cookie:\s*(?<key>[^=]*)=(?<value>[^;]*)/i', $header, $match))
       {
         $this->getCookie()->set($match['key'], $match['value']);
       }
-      elseif (preg_match('/^(?<key>[^:]*):\s*(?<value>[^;]*)/mi', $header, $match))
+      elseif (preg_match('/^(?<key>[^:]*):\s*(?<value>[^;]*)/i', $header, $match))
       {
-        $this->headers[$match['key']] = $match['value'];
+        $this->getHeaders()->set($match['key'], $match['value']);
       }
     }
   }
@@ -111,6 +112,17 @@ class Response
   public function getCookie()
   {
     return $this->cookie;
+  }
+
+
+  /**
+   * Gets headers part of the response
+   * 
+   * @return \HttpUnit\Http\Headers
+   */
+  public function getHeaders()
+  {
+    return $this->headers;
   }
 
   /**
