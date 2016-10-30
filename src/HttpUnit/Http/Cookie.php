@@ -56,20 +56,20 @@ class Cookie
   }
 
   /**
-   * Gets as header formatted
+   * Gets formatted as HTTP header
    * 
    * @return string
    */
-  public function getFormatted()
+  public function toString()
   {
     $str = '';
 
     foreach ($this->array as $key => $value)
     {
-      $str .= sprintf('%s=%s;', $key, $value);
+      $str .= sprintf('%s=%s; ', $key, $value);
     }
 
-    return rtrim($str, ';');
+    return rtrim($str, '; ');
   }
 
   /**

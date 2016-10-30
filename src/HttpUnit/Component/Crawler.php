@@ -139,7 +139,7 @@ class Crawler
     // cookie
     if ($this->getCookie()->count())
     {
-      $options[CURLOPT_COOKIE] = $this->getCookie()->getFormatted();
+      $options[CURLOPT_COOKIE] = $this->getCookie()->toString();
     }
 
     // URL
