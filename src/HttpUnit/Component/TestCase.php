@@ -22,13 +22,13 @@ class TestCase extends AbstractHttpUnit
   }
 
   /**
-   * Performs an assert on response code
+   * Performs an assert on response status code
    * 
    * @param int $code
    * 
    * @return bool
    */
-  public function assertResponseCode($code = null)
+  public function assertStatusCode($code = null)
   {
     return $code === $this->getResponse()->getStatusCode();
   }

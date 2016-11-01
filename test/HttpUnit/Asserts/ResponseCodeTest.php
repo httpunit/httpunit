@@ -31,7 +31,7 @@ class ResponseCodeTest extends PHPUnit_Framework_TestCase
 
       $this->unit->addScenario([ 'request' => ['path' => '/asserts/response-codes.php', 'params' => $params ] ]);
 
-      $this->assertEquals(true, $this->unit->assertResponseCode($test), "Should be $test");
+      $this->assertEquals(true, $this->unit->assertStatusCode($test), "Should be $test");
     }
   }
 
@@ -46,6 +46,6 @@ class ResponseCodeTest extends PHPUnit_Framework_TestCase
 
     $this->unit->addScenario([ 'request' => ['path' => '/asserts/response-codes.php', 'params' => $params ] ]);
 
-    $this->assertEquals($expected, $this->unit->assertResponseCode($expected), "Should be $expected");
+    $this->assertEquals($expected, $this->unit->assertStatusCode($expected), "Should be $expected");
   }
 }
