@@ -12,7 +12,7 @@ class Crawler
   protected $options = [
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_HEADER         => true,
-      CURLOPT_FOLLOWLOCATION => true,         // follow redirects
+      CURLOPT_FOLLOWLOCATION => false,         // follow redirects
       CURLOPT_ENCODING       => "",           // handle all encodings
       CURLOPT_USERAGENT      => "HttpUnit Test Spider",
       CURLOPT_AUTOREFERER    => true,         // set referer on redirect
